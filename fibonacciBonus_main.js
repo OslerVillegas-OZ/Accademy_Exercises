@@ -22,7 +22,12 @@ function _highestFibonacciNumber (maxFibValue){
         i = lastFib;
     }
 
-    arrayFib.splice(-1,1);
+    if(maxFibValue == arrayFib[arrayFib.length-1]){
+        // arrayFib keeps the last value
+    } else {
+        arrayFib.splice(-1,1);
+    }
+
     highest = arrayFib[arrayFib.length-1];
     window.alert(highest);
 

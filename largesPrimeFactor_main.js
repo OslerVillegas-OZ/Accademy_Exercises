@@ -1,31 +1,43 @@
 var maxNumb = window.prompt("Maximum number to be conciderated?");
 
 largestPrimeFactor = function(n){
-  var primeNumber = 0;
-  // do your work here
+var primeNumber = 0;
+// do your work here
 
-  var arrayPrime = [1, 2, 3, 5, 7];
-  var largo;
+var arrayPrime =[1, 2, 3];
+var largo;
 
-  for(i=8; i <= n; i++) {
-
-    largo = arrayPrime.length
-
-    for(j=1; j < largo; j++)
-
-      if (i%arrayPrime[j] == 0){
-        primeNumber = arrayPrime[j];
+for (i=4; i<=n; i ++){
+  if(i%2 == 0){
+    isPrime = false
+  } else {
+    largo = arrayPrime.length-1;
+    for(j=1; j<=largo; j++){
+      if(i%arrayPrime[j] == 0){
+        isPrime = false;
+        j = largo+1;
       } else {
-        arrayPrime.push(i);
+        isPrime = true;
       }
-
+    }
+    if(isPrime == true){arrayPrime.push(i)}
   }
-  
-  // primeNumber = arrayPrime;
-  window.alert(primeNumber);
+}
+
+largo = arrayPrime.length-1;
+for(k=0; k<=largo; k++){
+  if(n%arrayPrime[k] == 0){
+    primeNumber = arrayPrime[k];
+  }
+}
+
+// primeNumber = arrayPrime;
+
+window.alert(arrayPrime);
+window.alert(primeNumber);
 
 
-  return primeNumber;
+return primeNumber;
 }
 
 largestPrimeFactor(maxNumb);
